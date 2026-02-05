@@ -1,0 +1,1087 @@
+@charset "UTF-8";
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+@media screen and (max-width: 393px) {
+  .cartContainer {
+    top: 10px;
+    position: relative;
+    left: 0;
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    box-sizing: border-box;
+    margin: 0 auto 10px auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cartContainer > h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+  }
+  #menuList.products-list {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #menuList.products-list article {
+    display: block;
+    width: 90vw;
+    box-sizing: border-box;
+  }
+  #menuList.products-list .addToCart {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+  }
+  #menuList.products-list .addToCart button {
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    background-color: #5a0f1a;
+    color: #fff;
+    border-radius: 20px;
+  }
+  #menuList.products-list .addToCart input {
+    width: 90px;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 20px;
+  }
+  #menuList.products-list .container > h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  #menuList.products-list .filterAndSortList {
+    display: flex;
+    font-size: 0.95rem;
+  }
+  #menuList.products-list .filterAndSortList body {
+    padding: 0 4px;
+  }
+  #menuList.products-list .filterAndSortList h1 {
+    font-size: 2rem;
+    padding-left: 2px;
+    margin-bottom: 10px;
+  }
+  #menuList.products-list .filterAndSortList h2 {
+    font-size: 1.1rem;
+    height: auto;
+    margin-bottom: 6px;
+  }
+  #menuList.products-list .filterAndSortList .cartContainer {
+    left: 0;
+    top: auto;
+    width: 100vw;
+    border-radius: 0 0 12px 12px;
+    padding: 6px 2px;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+  #menuList.products-list .filterAndSortList #menuList {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  #menuList.products-list .filterAndSortList .products-list article {
+    margin: 4px 0;
+    font-size: 0.95rem;
+  }
+  #menuList.products-list .filterAndSortList .product-image {
+    height: 32vw;
+  }
+  #menuList.products-list .filterAndSortList .checkoutContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    padding: 4px 2px 10px 2px;
+    border-radius: 0 0 12px 12px;
+  }
+  #menuList.products-list .filterAndSortList #cardPayment,
+  #menuList.products-list .filterAndSortList #invoicePayment {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    padding: 10px 2px 14px 2px;
+    margin: 0 0 10px 0;
+  }
+  #menuList.products-list .filterAndSortList form {
+    padding-right: 0;
+    border-right: none;
+  }
+  #menuList.products-list .filterAndSortList .addToCart {
+    flex-direction: column;
+    gap: 4px;
+  }
+  #menuList.products-list .filterAndSortList .addToCart input {
+    width: 60px;
+    font-size: 0.95rem;
+  }
+  #menuList.products-list .filterAndSortList .addToCart button {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  .checkoutContainer {
+    max-width: 90vw;
+    box-sizing: border-box;
+    padding: 0 4px;
+    align-items: stretch;
+  }
+  .checkoutContainer form {
+    width: 90vw;
+  }
+  .checkoutContainer form .orderBtn {
+    position: static;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  .checkoutContainer form label {
+    position: static;
+    margin: 0.25rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    justify-self: stretch;
+  }
+  .checkoutContainer button {
+    left: 0;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  .customerInformationForm button {
+    left: 5px;
+    bottom: 10px;
+  }
+  .checkoutContainer input.card,
+  .checkoutContainer input.invoice {
+    position: static;
+    top: 0;
+    left: 0;
+    margin: 0 0.5rem 0 0;
+    width: auto;
+  }
+  footer li {
+    font-size: 1rem;
+    text-align: center;
+  }
+  #cardPayment {
+    max-width: 50vw;
+    padding: 0 4px;
+    box-sizing: border-box;
+  }
+  #invoicePayment {
+    width: 45vw;
+  }
+  #invoicePayment .submit-btn {
+    position: relative;
+    left: 41%;
+    margin: 0.5rem 0;
+  }
+}
+@media screen and (max-width: 1440px) {
+  body {
+    background-color: #72101d;
+  }
+  .cartContainer {
+    position: sticky;
+    left: 95%;
+    top: 600px;
+    width: 320px;
+    background-color: #e9dfd3;
+    border-radius: 20px;
+    padding: 7px;
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid #13080c;
+    justify-content: space-between;
+  }
+  .cartContainer button {
+    background-color: #72101d;
+    color: #f9f9f9;
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    margin: 2px;
+  }
+  .cartContainer h2 {
+    text-align: center;
+    font-family: "Poiret One", sans-serif;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 1.6rem;
+  }
+  .cartContainer p {
+    font-size: 1.4rem;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px;
+  }
+  .cartContainer article {
+    display: block;
+    text-align: left;
+    margin-inline: 1px;
+    font-size: 0.8rem;
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    white-space: nowrap;
+  }
+  .cart-total {
+    transition: all 0.3s ease-in-out;
+  }
+  .highlight-price {
+    font-family: "Comic Sans MS", cursive;
+    color: #51a358;
+  }
+  .highlight-price::after {
+    content: " (updated)";
+  }
+  #menuList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .products-list article {
+    min-width: 50%;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    border: 1px solid black;
+    background-color: #e9dfd3;
+    border-radius: 5px;
+    margin: 10px;
+  }
+  .products-list .metadata {
+    display: flex;
+    justify-content: space-between;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .product-image {
+    width: 100%;
+    height: 30vw;
+  }
+  /* REMOVED: Unused pseudo-element for broken image fallback */
+  .filterAndSortList {
+    font-size: 1rem;
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin-bottom: 10px;
+  }
+  .filterAndSortList span {
+    color: #f9f9f9;
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+  /* REMOVED: Conflicting grid layout - mobile flexbox takes precedence */
+  article span {
+    text-align: center;
+    margin: 12px;
+  }
+  /* Font weights: 100-1000 */
+  h1 {
+    color: #f9f9f9;
+    padding-left: 10px;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  h2,
+  span,
+  p {
+    color: #13080c;
+  }
+  h2 {
+    height: 50px;
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p,
+  span {
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2rem;
+  }
+  button {
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+  .addToCart {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 0.5rem;
+  }
+  .addToCart button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    background-color: #72101d;
+    color: #f9f9f9;
+    border-radius: 20px;
+  }
+  .addToCart input {
+    width: 9rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    border-radius: 20px;
+  }
+  .checkoutContainer {
+    display: flex;
+    margin-block: 10px;
+  }
+  .paymentContainer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .paymentContainer button p {
+    font-size: 1rem;
+    margin: 5px 10px;
+  }
+  .checkoutContainer {
+    width: 50%;
+    background-color: #e9dfd3;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+  }
+  .checkoutContainer h2 {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .checkoutContainer label {
+    margin-bottom: 10px;
+    margin-left: 15px;
+    display: block;
+    font-family: "Spline Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+  }
+  .checkoutContainer input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #13080c;
+    border-radius: 20px;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0 10px;
+  }
+  h1 {
+    font-size: 2.3rem;
+    padding-left: 4px;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 1.2rem;
+    height: auto;
+    margin-bottom: 8px;
+  }
+  .cartContainer {
+    top: 120px;
+    left: 0;
+    width: 95vw;
+    border-radius: 10px;
+    padding: 8px 4px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+  #menuList {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .products-list article {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+  .product-image {
+    height: 28vw;
+  }
+  .checkoutContainer {
+    flex-direction: column;
+    width: 95vw;
+    padding: 8px 4px 16px 4px;
+    border-radius: 10px;
+  }
+  #cardPayment,
+  #invoicePayment {
+    width: 95vw;
+    min-width: unset;
+    max-width: 95vw;
+    padding: 14px 4px 18px 4px;
+    margin: 0 0 14px 0;
+  }
+  form {
+    padding-right: 0;
+    border-right: none;
+  }
+  .addToCart {
+    width: 100%;
+    flex-direction: row;
+    gap: 8px;
+  }
+  .addToCart input {
+    max-width: 60px;
+    font-size: 1rem;
+  }
+  .addToCart button {
+    width: 60px;
+    font-size: 1rem;
+  }
+}
+/* Add a black background color to the top navigation */
+.menuBar {
+  background-color: #13080c;
+  overflow: hidden;
+  width: 300px;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  top: -20px;
+  left: 20px;
+}
+.menuBar nav {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Style the links inside the navigation bar */
+.menuBar a {
+  float: left;
+  color: #f9f9f9;
+  text-align: center;
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.1rem;
+  padding: 12px 12px;
+  transition: 0.3s;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Change the color of links on hover */
+.menuBar a:hover {
+  background-color: #f2cc8f;
+  color: #f4f1de;
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #13080c;
+  justify-content: space-evenly;
+  color: #f9f9f9;
+}
+.footerContainer li {
+  list-style-type: none;
+}
+.footerContainer span {
+  color: #f9f9f9;
+  font-size: 0.9rem;
+}
+.footerContainer a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.adressSpan {
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.footerContactInfo {
+  text-align: center;
+}
+
+body {
+  background-color: #5a0f1a;
+}
+
+h1 {
+  color: #fff;
+  padding-left: 10px;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  height: 50px;
+  font-family: "Poiret One", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+p,
+span {
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  color: #222;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button:focus,
+input:focus,
+select:focus,
+a:focus {
+  outline: 2px solid #5a0f1a;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #f9f9f9;
+  z-index: 2;
+}
+
+.skip-to-content {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000;
+  background: #f9f9f9;
+  color: #72101d;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  transition: left 0.2s;
+}
+
+.skip-to-content:focus {
+  left: 0;
+  width: auto;
+  height: auto;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+#timeOutTextChange {
+  color: #a31d2a;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2rem;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  text-wrap: wrap;
+}
+
+.cartContainer {
+  position: sticky;
+  left: 95%;
+  top: 18%;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #f5f2ee;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
+  display: block;
+  border: 1px solid #13080c;
+}
+.cartContainer h2 {
+  text-align: center;
+  font-family: "Poiret One", sans-serif;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  margin: 0 0 10px 0;
+}
+.cartContainer p {
+  font-size: 1rem;
+  padding: 8px 0;
+  border-bottom: 1px solid lightgrey;
+  margin: 5px 0;
+}
+.cartContainer button {
+  background-color: #5a0f1a;
+  color: #f9f9f9;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  margin: 4px 2px;
+  border: none;
+}
+
+.cartContainer article {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: left;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  border-bottom: 1px solid #d4ccc0;
+}
+
+#menuList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.products-list article {
+  max-width: 100%;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  border: 1px solid black;
+  background-color: #f5f2ee;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.products-list .metadata {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-image {
+  width: 100%;
+  height: 30vw;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.filterAndSortList {
+  font-size: 1rem;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  margin-bottom: 10px;
+}
+.filterAndSortList span {
+  color: #f9f9f9;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+article span {
+  text-align: center;
+  margin: 12px;
+  font-weight: 400;
+}
+
+.addToCart {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
+}
+.addToCart button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  background-color: #5a0f1a;
+  color: #fff;
+  border-radius: 20px;
+}
+.addToCart input {
+  width: 90px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bolder;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 20px;
+}
+
+.highlight-price {
+  font-family: "Comic Sans MS", cursive;
+  color: #51a358;
+}
+
+.highlight-price::after {
+  content: " 🔃";
+  font-size: 1rem;
+}
+
+.cart-total {
+  transition: all 0.3s ease-in-out;
+}
+
+button {
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+button p {
+  font-size: 1rem;
+  margin: 5px 10px;
+}
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  border: 1px solid black;
+  background-color: #f5f2ee;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.checkoutContainer button {
+  position: relative;
+  left: 85%;
+  bottom: 20px;
+}
+
+.card,
+.invoice {
+  position: relative;
+  bottom: -1px;
+  left: 20px;
+}
+
+input.card,
+input.invoice {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  accent-color: #72101d;
+}
+
+form {
+  height: 50%;
+  padding-right: 30px;
+  border-right: 1px solid black;
+}
+form h1 {
+  color: #72101d;
+  font-family: "Poiret One", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+form span {
+  position: relative;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  padding: 10px;
+}
+form input {
+  border: 1px solid #13080c;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-top: 5px;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.invoiceOrCard {
+  position: relative;
+  gap: 20px;
+  text-align: justify;
+}
+.invoiceOrCard button {
+  background-color: #5a0f1a;
+  color: #f9f9f9;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  margin: 10px 0 0 0;
+  border: none;
+  transition: background 0.2s;
+  position: relative;
+  left: 85%;
+  bottom: 20px;
+}
+.invoiceOrCard button:hover {
+  background-color: #a31d2a;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+form label span.error {
+  max-width: 300px;
+  color: red;
+  font-weight: bold;
+  border-left: 2px solid red;
+  padding: 2px 8px;
+  line-height: 1.3;
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 2px;
+}
+form label span.error::before {
+  content: "error";
+  font-family: "Material Symbols Outlined";
+  font-size: 1rem;
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.checkoutContainer {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+#cardPayment,
+#invoicePayment {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  box-sizing: border-box;
+  padding: 20px 24px 24px 24px;
+  background-color: #f5f2ee;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  margin: 0 auto 20px auto;
+}
+
+#cardPayment h1,
+#invoicePayment h1 {
+  color: #72101d;
+  font-family: "Poiret One", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+
+#cardPayment .card-icon {
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+}
+
+#cardPayment button,
+#invoicePayment .submit-btn,
+.customerInformationForm button {
+  /* Unified by .form-btn style above */
+  background-color: #5a0f1a;
+  color: #f9f9f9;
+  font-family: "Spline Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  margin: 10px 0 0 0;
+  border: none;
+  transition: background 0.2s;
+  position: relative;
+}
+
+#cardPayment button {
+  left: 20px;
+  bottom: -70px;
+}
+
+#invoicePayment .submit-btn {
+  left: 20px;
+  bottom: -20px;
+}
+
+.customerInformationForm button {
+  left: 5px;
+  bottom: 10px;
+}
+
+#invoicePayment .terms {
+  min-width: 50%;
+  max-width: 480px;
+  padding: 10px;
+  left: 10px;
+}
+
+#invoicePayment .terms input {
+  width: 20px;
+  position: relative;
+  top: -5px;
+  left: 5px;
+}/*# sourceMappingURL=style.css.map */

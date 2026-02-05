@@ -1,0 +1,38 @@
+/* Add a black background color to the top navigation */
+.menuBar {
+  background-color: #13080c;
+  overflow: hidden;
+  width: 300px;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  top: -20px;
+  left: 20px;
+  nav {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 20px;
+  }
+}
+
+/* Style the links inside the navigation bar */
+.menuBar a {
+  float: left;
+  color: #f9f9f9;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.1rem;
+  padding: 12px 12px;
+  transition: 0.3s;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Change the color of links on hover */
+.menuBar a:hover {
+  background-color: #f2cc8f;
+  color: #f4f1de;
+}

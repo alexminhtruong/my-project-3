@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="This is Alex's homemade goodies shop. Here you can find various kinds of snacks, food and drinks made with love.">
+  <title>FED25D | Inlämningsuppgift 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poiret+One&family=Spline+Sans:wght@300..700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=error">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="src/styles/style.css">
+</head>
+
+<body>
+  <!--**************************** This is the menubar ****************************-->
+  <header>
+    <div class="menuBar">
+      <nav>
+        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <a href="#contactInfo"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a>
+      </nav>
+    </div>
+  </header>
+  <!--**************************** This is the menu ****************************-->
+  <main class="container">
+    <h1>Welcome to Alex's homemade goodies.</h1>
+    <div class="filterAndSortList">
+      <label>
+        <span>Filter</span>
+        <select id="filterList">
+          <option value="all" selected>All</option>
+          <option value="snacks">Snacks</option>
+          <option value="food">Food</option>
+          <option value="drinks">Drinks</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Sort</span>
+        <select id="sortListByPrice">
+          <option selected disabled>Standard</option>
+          <option value="low">Lowest Price</option>
+          <option value="high">Highest Price</option>
+        </select>
+      </label>
+    </div>
+    <div id="timeOutText" class="cartContainer clearFormAndCart">
+      <section id="orderSummary">
+        <h2>Cart</h2>
+        <p id="discount"></p>
+        <p>Total sum incl. freight: <span id="cartTotal" aria-live="polite">0 SEK</span></p>
+        <p id="shippingCost"></p>
+      </section>
+      <div id="cart" aria-live="polite">Your cart is empty.</div>
+    </div>
+
+    <section class="products-list" id="menuList">
+      <h2 class="hidden">Menu</h2>
+    </section>
+
+    <div class="checkoutContainer clearFormAndCart">
+      <div>
+        <form id="orderForm" class="customerInformationForm" autocomplete="off">
+          <h1>Customer information</h1>
+
+          <label>
+            <span>Firstname</span>
+            <input type="text" id="firstname" name="firstname" autocomplete="on">
+            <span class="hidden error">"First name must contain at least 2 characters and can only contain letters, dots
+              (.) or hyphens (-).
+              Two consecutive dots or hyphens are not allowed."</span>
+          </label>
+          <label>
+            <span>Lastname</span>
+            <input type="text" id="lastname" name="lastname" autocomplete="on">
+            <span class="hidden error">"Last name must contain at least 2 characters and can only contain letters, dots
+              (.), hyphens (-) or
+              apostrophes ('). Two consecutive special characters are not allowed."</span>
+          </label>
+          <label>
+            <span>Adress</span>
+            <input type="text" id="adress" name="adress" autocomplete="on">
+            <span class="hidden error">"Address must contain a street name followed by a house number (e.g. 'Storgatan
+              10' or 'Drottninggatan
+              5A')."</span>
+          </label>
+          <label>
+            <span>Zipcode</span>
+            <input type="text" id="zipcode" name="zipcode" autocomplete="on">
+            <span class="hidden error">"ZIP code must consist of 5 digits (e.g. '12345' or '123 45')."</span>
+          </label>
+          <label>
+            <span>City</span>
+            <input type="text" id="city" name="city" autocomplete="on">
+            <span class="hidden error">"City name must contain at least 2 characters and can only contain letters,
+              spaces or hyphens."</span>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="text" id="email" name="email" autocomplete="on">
+            <span class="hidden error">"Please enter a valid email address (e.g. 'name@example.com')."</span>
+          </label>
+          <label>
+            <span>Phonenumber</span>
+            <input type="text" id="phoneNumber" name="phoneNumber" autocomplete="on">
+            <span class="hidden error">"Phone number must be a valid Swedish number (e.g. '070-123 45 67' or '+46 70 123
+              45 67')."</span>
+          </label>
+          <label>
+            <input type="radio" name="invoiceOrCard" value="card" class="card" checked>
+            <span>Card</span>
+          </label>
+          <label>
+            <input type="radio" name="invoiceOrCard" value="invoice" class="invoice">
+            <span>Invoice</span>
+            <span class="invoiceOver800Sum"></span>
+          </label>
+          <button id="orderBtn" disabled>Order</button>
+        </form>
+      </div>
+
+      <div id="cardPayment" class="hidden clearFormAndCart" tabindex="-1">
+        <h1>💳 Card Payment</h1>
+        <p class="subtitle">Enter your payment details securely</p>
+
+        <form id="cardPaymentForm">
+          <div>
+            <label for="cardName">Cardholder Name</label>
+            <input type="text" id="cardName" name="cardName" placeholder="Anders Andersson" required>
+          </div>
+
+          <div>
+            <label for="cardholderEmail">Email Address</label>
+            <input type="email" id="cardholderEmail" name="cardholderEmail" placeholder="anders.andersson@example.com"
+              required>
+          </div>
+
+          <div>
+            <label for="cardNumber">Card Number</label>
+            <div>
+              <div><i class="fa fa-cc-visa" style="font-size: 36px"></i></div>
+              <div><i class="fa fa-cc-mastercard" style="font-size: 36px"></i></div>
+              <div><i class="fa fa-cc-amex" style="font-size: 36px"></i></div>
+            </div>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19"
+              required>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="expiry">Expiry Date</label>
+              <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+            </div>
+
+            <div>
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+              <div>
+                <i class="fa fa-lock" style="font-size: 36px"></i>
+                <span>3-4 digits on back</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Pay Now</button>
+
+          <div>
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Secured with 256-bit SSL encryption
+          </div>
+        </form>
+      </div>
+      <div id="invoicePayment" class="hidden clearFormAndCart" tabindex="-1">
+        <h1>📄 Invoice Payment</h1>
+        <p class="subtitle">Complete your invoice payment details</p>
+
+        <form id="invoicePaymentForm">
+          <div>
+            <label for="companyName">Company Name <span class="required">*</span></label>
+            <input type="text" id="companyName" name="companyName" placeholder="Acme Corporation" required>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="John" required>
+            </div>
+
+            <div>
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="invoiceEmail">Email Address <span class="required">*</span></label>
+            <input type="email" id="invoiceEmail" name="invoiceEmail" placeholder="john.doe@company.com" required>
+          </div>
+
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+          </div>
+
+          <div>
+            <label for="address">Billing Address <span class="required">*</span></label>
+            <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="invoiceCity">City <span class="required">*</span></label>
+              <input type="text" id="invoiceCity" name="invoiceCity" placeholder="New York" required>
+            </div>
+
+            <div>
+              <label for="zipCode">ZIP Code <span class="required">*</span></label>
+              <input type="text" id="zipCode" name="zipCode" placeholder="10001" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="state">State / Province <span class="required">*</span></label>
+              <input type="text" id="state" name="state" placeholder="NY" required>
+            </div>
+
+            <div>
+              <label for="country">Country <span class="required">*</span></label>
+              <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="US" selected>United States</option>
+                <option value="CA">Canada</option>
+                <option value="GB">United Kingdom</option>
+                <option value="AU">Australia</option>
+                <option value="DE">Germany</option>
+                <option value="FR">France</option>
+                <option value="IT">Italy</option>
+                <option value="ES">Spain</option>
+                <option value="NL">Netherlands</option>
+                <option value="SE">Sweden</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="taxId">Tax ID / VAT Number
+              <span class="info-icon" title="Your company's tax identification number">?</span></label>
+            <input type="text" id="taxId" name="taxId" placeholder="12-3456789">
+          </div>
+
+          <div>
+            <label for="poNumber">Purchase Order Number</label>
+            <input type="text" id="poNumber" name="poNumber" placeholder="PO-2026-001">
+            <small>Optional reference number for your records</small>
+          </div>
+
+          <div>
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" placeholder="Add any special instructions or comments..."></textarea>
+          </div>
+
+          <div class="terms">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+            <label for="agreeTerms">
+              I agree to the <a href="#" onclick="return false;">terms and conditions</a> and confirm that the
+              information provided is accurate.
+              <span class="required">*</span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Payment Request</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <!--**************************** This is the footer ****************************-->
+  <footer class="footerContainer">
+    <div>
+      <address id="contactInfo" class="contactInfo">
+        <ul>
+          <li><span class="adressSpan">Visit us at:</span></li>
+          <li><span>Trần Hưng Đạo, Dương Tơ,</span></li>
+          <li><span>Phú Quốc, Kiên Giang, Vietnam</span></li>
+        </ul>
+      </address>
+    </div>
+    <div class="footerContactInfo">
+      <ul>
+        <li>
+          <span>If you have some questions about our products please contact us.</span>
+        </li>
+        <li>
+          <a href="mailto:alextruong.1990@icloud.com" aria-label="Contact us by email"><i
+              class="fa fa-envelope"></i></a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  <script type="module" src="src/main.js"></script>
+</body>
+
+</html>

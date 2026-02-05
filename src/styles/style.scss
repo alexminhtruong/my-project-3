@@ -1,0 +1,458 @@
+// ==========================================
+// 1. IMPORTS & BASE
+// ==========================================
+@use '_reset';
+@use '_mobile';
+@use '_desktop';
+@use '_tablet';
+@use '_menuBar';
+@use '_footer';
+
+body {
+  background-color: #5a0f1a;
+}
+
+// ==========================================
+// 2. TYPOGRAPHY & GLOBAL ELEMENTS
+// ==========================================
+h1 {
+  color: #fff;
+  padding-left: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+h2 {
+  height: 50px;
+  font-family: 'Poiret One', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #222;
+}
+p,
+span {
+  font-family: 'Spline Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  color: #222;
+}
+.hidden {
+  display: none !important;
+}
+
+// Accessibility: Focus indicators
+button:focus,
+input:focus,
+select:focus,
+a:focus {
+  outline: 2px solid #5a0f1a;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #f9f9f9;
+  z-index: 2;
+}
+
+// Accessibility: Skip to content link
+.skip-to-content {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 1000;
+  background: #f9f9f9;
+  color: #72101d;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  transition: left 0.2s;
+}
+.skip-to-content:focus {
+  left: 0;
+  width: auto;
+  height: auto;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+// ==========================================
+// 3. LAYOUT & CONTAINERS
+// ==========================================
+#timeOutTextChange {
+  color: #a31d2a;
+  font-family: 'DM Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2rem;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  text-wrap: wrap;
+}
+
+.cartContainer {
+  position: sticky;
+  left: 95%;
+  top: 18%;
+  width: fit-content;
+  background-color: #f5f2ee;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
+  display: block;
+  border: 1px solid #13080c;
+  h2 {
+    text-align: center;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bolder;
+    font-size: 1.25rem;
+    margin: 0 0 10px 0;
+  }
+  p {
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid lightgrey;
+    margin: 5px 0;
+  }
+  button {
+    background-color: #5a0f1a;
+    color: #f9f9f9;
+    font-family: 'Spline Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    margin: 4px 2px;
+    border: none;
+  }
+}
+.cartContainer article {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: left;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-family: 'Spline Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  border-bottom: 1px solid #d4ccc0;
+}
+
+#menuList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.products-list article {
+  max-width: 100%;
+  min-height: fit-content;
+  border: 1px solid black;
+  background-color: #f5f2ee;
+  border-radius: 5px;
+  margin: 10px;
+}
+.products-list .metadata {
+  display: flex;
+  justify-content: space-between;
+}
+.product-image {
+  width: 100%;
+  height: 30vw;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filterAndSortList {
+  font-size: 1rem;
+  font-family: 'Spline Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  margin-bottom: 10px;
+  span {
+    color: #f9f9f9;
+    font-family: 'Spline Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+}
+article span {
+  text-align: center;
+  margin: 12px;
+  font-weight: 400;
+}
+
+// ==========================================
+// 4. COMPONENTS & UI ELEMENTS
+// ==========================================
+.addToCart {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
+  button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    background-color: #5a0f1a;
+    color: #fff;
+    border-radius: 20px;
+  }
+  input {
+    width: 90px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: 'Spline Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 20px;
+  }
+}
+.highlight-price {
+  font-family: 'Comic Sans MS', cursive;
+  color: #51a358;
+}
+.highlight-price::after {
+  content: ' \1F503'; // Unicode for ↕
+  font-size: 1rem;
+}
+.cart-total {
+  transition: all 0.3s ease-in-out;
+}
+button {
+  font-family: 'Spline Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+button p {
+  font-size: 1rem;
+  margin: 5px 10px;
+}
+
+// ==========================================
+// 5. CHECKOUT & PAYMENT FORMS
+// ==========================================
+.checkoutContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  border: 1px solid black;
+  background-color: #f5f2ee;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+
+  button {
+    position: relative;
+    left: 85%;
+    bottom: 20px;
+  }
+}
+
+.card,
+.invoice {
+  position: relative;
+  bottom: -1px;
+  left: 20px;
+}
+input.card,
+input.invoice {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  accent-color: #72101d;
+}
+
+form {
+  height: 50%;
+  padding-right: 30px;
+  border-right: 1px solid black;
+  h1 {
+    color: #72101d;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  span {
+    position: relative;
+    font-family: 'Spline Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  input {
+    border: 1px solid #13080c;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin-top: 5px;
+    font-family: 'Spline Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+}
+.invoiceOrCard {
+  position: relative;
+  gap: 20px;
+  text-align: justify;
+
+  button {
+    background-color: #5a0f1a;
+    color: #f9f9f9;
+    font-family: 'Spline Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    margin: 10px 0 0 0;
+    border: none;
+    transition: background 0.2s;
+    position: relative;
+    left: 85%;
+    bottom: 20px;
+  }
+  button:hover {
+    background-color: #a31d2a;
+  }
+}
+
+form {
+  label {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+
+    span {
+      &.error {
+        max-width: 300px;
+        color: red;
+        font-weight: bold;
+        border-left: 2px solid red;
+        padding: 2px 8px;
+        line-height: 1.3;
+        font-size: 1rem;
+        display: inline-block;
+        margin-top: 2px;
+        &::before {
+          content: 'error';
+          font-family: 'Material Symbols Outlined';
+          font-size: 1rem;
+          position: relative;
+          top: 2px;
+          display: inline-block;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+}
+
+.checkoutContainer {
+  width: fit-content;
+}
+
+#cardPayment,
+#invoicePayment {
+  min-width: fit-content;
+  box-sizing: border-box;
+  padding: 20px 24px 24px 24px;
+  background-color: #f5f2ee;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  margin: 0 auto 20px auto;
+}
+#cardPayment h1,
+#invoicePayment h1 {
+  color: #72101d;
+  font-family: 'Poiret One', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+#cardPayment .card-icon {
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+}
+#cardPayment button,
+#invoicePayment .submit-btn,
+.customerInformationForm button {
+  /* Unified by .form-btn style above */
+  background-color: #5a0f1a;
+  color: #f9f9f9;
+  font-family: 'Spline Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  margin: 10px 0 0 0;
+  border: none;
+  transition: background 0.2s;
+  position: relative;
+}
+#cardPayment button {
+  left: 20px;
+  bottom: -70px;
+}
+
+#invoicePayment .submit-btn {
+  left: 20px;
+  bottom: -20px;
+}
+.customerInformationForm button {
+  left: 5px;
+  bottom: 10px;
+}
+
+#invoicePayment .terms {
+  min-width: 50%;
+  max-width: 480px;
+  padding: 10px;
+  left: 10px;
+}
+#invoicePayment .terms input {
+  width: 20px;
+  position: relative;
+  top: -5px;
+  left: 5px;
+}

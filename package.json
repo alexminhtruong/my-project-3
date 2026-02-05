@@ -1,0 +1,20 @@
+{
+  "name": "my-project-3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@stylistic/eslint-plugin": "^5.7.1",
+    "eslint": "^9.39.2",
+    "globals": "^17.3.0",
+    "prettier": "3.8.1",
+    "sass": "^1.97.3",
+    "vite": "^7.2.4"
+  }
+}
